@@ -9,7 +9,7 @@ Created on Tue Sep 26 14:44:31 2023
 import matplotlib.pyplot as plt
 import tensorflow
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.callbacks import EarlyStopping
+# from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, Flatten, MaxPooling2D, Dense, Dropout, BatchNormalization, Activation, AveragePooling2D
 
@@ -20,7 +20,7 @@ train_generator = ImageDataGenerator(horizontal_flip=True, vertical_flip=True,
 
 # fitting the transformer to the images in the training data set that containes our classes
 # this identifies the classes as individual naming in this case cats and dogs
-train_data = train_generator.flow_from_directory("/home/aja/Documents/ML/dataset/dog_and_cat/dataset/training_set",
+train_data = train_generator.flow_from_directory("C:/Users/Acer/Documents/ML/dataset/dog_and_cat/dataset/training_set",
                                                  class_mode='binary',
                                                  batch_size=50, target_size=(256, 256))
 
@@ -30,7 +30,7 @@ valid_generator = ImageDataGenerator()
 
 # fitting the transformer to the images contained in the test_set folder
 # this folder contains the cats and dogs classes as well in this case
-valid_data = valid_generator.flow_from_directory("/home/aja/Documents/ML/dataset/dog_and_cat/dataset/test_set",
+valid_data = valid_generator.flow_from_directory("C:/Users/Acer/Documents/ML/dataset/dog_and_cat/dataset/test_set",
                                                  target_size=(256, 256),
                                                  class_mode='binary')
 
