@@ -21,6 +21,7 @@ class ClosestLandFill:
         return self.lfs
     def get_request_loc(self):
         return self.request.location
+    
     def distance(self):
         # distance between latitudes
         # and longitudes
@@ -29,8 +30,8 @@ class ClosestLandFill:
             dLon = (self.lfs[landfill][1] - self.request.location[1]) * math.pi / 180.0
         
             # convert to radians
-            lat1 = (lat1) * math.pi / 180.0
-            lat2 = (lat2) * math.pi / 180.0
+            lat1 = (self.request.location[0]) * math.pi / 180.0
+            lat2 = (self.lfs[landfill][0]) * math.pi / 180.0
         
             # apply formulae
             a = (pow(math.sin(dLat / 2), 2) +
@@ -38,7 +39,9 @@ class ClosestLandFill:
                     math.cos(lat1) * math.cos(lat2));
             rad = 6371
             c = 2 * math.asin(math.sqrt(a))
-            return rad * c
+            distance = rad * c
+            if distance < self.dist:
+                self.dist = distance
     
     def landfill(self):
         return
