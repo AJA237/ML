@@ -1,3 +1,4 @@
+clear
 class ClosestLandFill:
     def __init__(self, available_landfill, request):
         self.landfills = available_landfill
