@@ -36,10 +36,9 @@ class AgentAssign:
                 self.dist = distance
                 self.agent = self.agents[agent]
     def run(self):
-        self.distance()
         if self.request.volume < 160:
             return self.agents
         else:
             self.distance()
             print(self.closest_agent())
-            
+
