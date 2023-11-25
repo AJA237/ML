@@ -7,17 +7,26 @@ class AgentPerformance:
         self.shifts = None
         self.completed = None
         self.ratings = None
-        # output
-        # - average rating - number of hours laboured - number of complete request - number of shifts - puntuality
+        
     def requests(self, requests):
         self.req_all = [request for request in requests if self.agent.id == request.agent_id]
         
-    def info(self):
+    def info(self, punctuality_weight):
         for request in self.req_all:
             self.rating += request.rating
             self.hours += request.hours
             self.completed += request.completed
             self.shifts += request.shift
-    def punctuality(self):
-        for request in self.req_all:
-            time_dif = request.req_time - request.arrival
+            punctuality = self.punctuality(request=request)
+            punctuality_score = punctuality * punctuality_weight
+        total_score = self.rating + self.hours + self.completed + self.shifts + punctuality_score
+        return total_score
+    
+    def punctuality(self, request):
+        time_dif = request.req_time - request.arrival_time
+        if time_dif <= 300:
+            return 1
+        elif time_dif <= 1800:
+            return 0.5
+        else:
+            return 0
