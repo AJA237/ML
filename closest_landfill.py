@@ -17,10 +17,11 @@ class ClosestLandFill:
     - landfill_loc: A dictionary containing the location of each landfill object.
     """
         landfill_loc = {landfill:landfill.location for landfill in self.landfills}
-        return
+        return landfill_loc
     def get_request_loc(self):
-        return
+        return self.request.location
     def distance(self):
+
         return
     def landfill(self):
         return
