@@ -9,8 +9,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-python@v2
         with:
-          node-version: "14"
-      - run: npm install -g bats
+          python-version: "3.11"
+      - run: pip install numpy && pip install pandas
       - run: bats -v
