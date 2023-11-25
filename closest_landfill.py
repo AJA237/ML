@@ -9,20 +9,29 @@ class ClosestLandFill:
 
     def get_landfill_loc(self):
         """
-    Retrieves the location of each landfill object and stores it in a dictionary.
+        Retrieves the location of each landfill object and stores it in a dictionary.
 
-    Parameters:
-    - self: The current instance of the class.
+        Parameters:
+        - self: The current instance of the class.
 
-    Returns:
-    - landfill_loc: A dictionary containing the location of each landfill object.
-    """
+        Returns:
+        - landfill_loc: A dictionary containing the location of each landfill object.
+        """
         self.lfs = {landfill:landfill.location for landfill in self.landfills}
         return self.lfs
     def get_request_loc(self):
         return self.request.location
     
     def distance(self):
+        """
+        Retrieves the location of each landfill object and stores it in a dictionary.
+
+        Parameters:
+        - self: The current instance of the class.
+
+        Returns:
+        - landfill_loc: A dictionary containing the location of each landfill object.
+        """
         # distance between latitudes
         # and longitudes
         for landfill,loc in self.lfs:
