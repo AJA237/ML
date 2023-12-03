@@ -155,7 +155,7 @@ class SubscriptionHandler:
     def generate_pickup_dates(self):
         current_date = datetime.now
         if current_date <= end_date:
-            match (self.package):
+            match self.package:
                 case "vip":
                     for _ in range(3):
                         self.pk_dates.append()
