@@ -99,4 +99,9 @@ class DoubleLinkedList:
             return True
         return False
     def search(self, target):
-        
+        current_node = self.head
+        while current_node:
+            if current_node.value = target:
+                return True
+            current_node = current_node.next
+        return False
