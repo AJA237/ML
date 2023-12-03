@@ -1,3 +1,8 @@
+from datetime import datetime
+import random as rn
+
+PACKAGES = {"standard", "premium", 'vip'}
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -111,6 +116,8 @@ class DoubleLinkedList:
             node.value = value
             return True
         return False
+
+
     def search(self, target):
         current_node = self.head
         index = 0
@@ -120,6 +127,8 @@ class DoubleLinkedList:
             current_node = current_node.next
             index += 1
         return -1
+
+
     def remove(self, index):
         if index < 0 or index >= self.length:
             
@@ -136,4 +145,8 @@ class DoubleLinkedList:
         self.length -= 1
         return popped_node
 
-packages = {"standard", "premium", 'vip'}
+class SubscriptionHandler:
+    def __init__(self, subscription):
+        self.package = subscription
+
+    def
