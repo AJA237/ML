@@ -55,6 +55,7 @@ class DoubleLinkedList:
         while current_node:
             print(current_node.value)
             current_node = current_node.previous
+    
 
     def pop(self):
         if not self.head:
@@ -108,3 +109,17 @@ class DoubleLinkedList:
             index += 1
         return -1
     def remove(self, index):
+        if index < 0 or index >= self.length:
+            
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length - 1:
+            return self.pop()
+        popped_node = self.get(index)
+        popped_node.previous.next = popped_node.next
+        popped_node.next.previous = popped_node.previous
+        popped_node.next = None
+        popped_node.previous = None
+        self.length -= 1
+        return popped_node
