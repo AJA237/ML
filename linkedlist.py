@@ -3,4 +3,7 @@ class Node:
         self.value = value
         self.next = None
         self.previous = None
-        
+
+    def __str__(self):
+        return self.value
+
