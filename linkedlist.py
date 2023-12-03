@@ -1,8 +1,9 @@
-from datetime import datetime
+import datetime
 import random as rn
 from dateutil.relativedelta import relativedelta
 
 PACKAGES = {"standard", "premium", 'vip'}
+
 
 class Node:
     def __init__(self, value):
@@ -12,6 +13,7 @@ class Node:
 
     def __str__(self):
         return self.value
+
 
 class DoubleLinkedList:
     def __init__(self):
@@ -28,7 +30,7 @@ class DoubleLinkedList:
                 result += " <-> "
             temp_node = temp_node.next
         return result
-    
+
     def append(self, value):
         new_node = Node(value)
         if not self.head:
@@ -50,17 +52,19 @@ class DoubleLinkedList:
             self.head.previous = new_node
             self.head = new_node
         self.length += 1
+
     def traverse(self):
         current_node = self.head
         while current_node:
             print(current_node.value)
             current_node = current_node.next
-        
+
     def reverse_traversal(self):
         current_node = self.tail
         while current_node:
             print(current_node.value)
             current_node = current_node.previous
+
     def pop_first(self):
         if not self.head:
             return None
@@ -88,6 +92,7 @@ class DoubleLinkedList:
             popped_node.previous = None
         self.length -= 1
         return popped_node
+
     def insert(self, index, value):
         if index < 0 or index > self.length:
             print("Index out of bounds.")
@@ -99,7 +104,8 @@ class DoubleLinkedList:
         elif index == self.length:
             self.append(value)
             return
-     def get(self, index):
+
+    def get(self, index):
         if index < 0 or index >= self.length:
             return None
         if index < self.length // 2:
@@ -109,8 +115,9 @@ class DoubleLinkedList:
         else:
             current_node = self.tail
             for _ in range(self.length - 1, index, -1):
-                current_node  = current_node.previous
+                current_node = current_node.previous
         return current_node
+
     def set_value(self, index, value):
         node = self.get(index)
         if node:
@@ -118,17 +125,15 @@ class DoubleLinkedList:
             return True
         return False
 
-
     def search(self, target):
         current_node = self.head
         index = 0
         while current_node:
-            if current_node.value = target:
+            if current_node.value == target:
                 return index
             current_node = current_node.next
             index += 1
         return -1
-
 
     def remove(self, index):
         if index < 0 or index >= self.length:
@@ -145,29 +150,55 @@ class DoubleLinkedList:
         self.length -= 1
         return popped_node
 
+
 class SubscriptionHandler:
     def __init__(self, subscription):
         self.package = subscription
-        self.start_date = datetime.today()
+        self.start_date = datetime.datetime.today()
         self.end_date = self.start_date + datetime.timedelta(days=30)
         self.pk_dates = []
 
-    def generate_pickup_dates(self):
-        current_date = datetime.now
-        if current_date <= end_date:
+    def generate_pickup_dates(self, current_date, day_rn):
+        """Generates weekly pickup days"""
+        pickup_dates = []
+        next_pickup = []
+        if current_date <= self.end_date:
             match self.package:
                 case "vip":
-                    for _ in range(3):
-                        self.pk_dates.append()
+                    # n = (i for i in range(3))
+                    # for _ in n:
+                    pickup_dates.append(self.start_date + datetime.timedelta(days=day_rn))
+                    # self.pk_dates.append(rn.randint(1,7))
                 case "premium":
-                    for _ in range(2)
-                        self.pk_dates.append()
+                    n = (j for j in range(2))
+                    for _ in n:
+                        pickup_dates.append(self.start_date + datetime.timedelta(days=day_rn))
                 case "standard":
-                    self.pk_dates.append()
-            for day in self.pk_dates:
-                next_delivery = current_date + relativedelta(days=+1)
-                self.pk_dates[day.index] = next_delivery
+                    pickup_dates.append(self.start_date + datetime.timedelta(days=day_rn))
+            for day in pickup_dates:
+                next_delivery = day + relativedelta(days=+1)
+                # self.pk_dates[self.pk_dates.index(day)] = next_delivery
+                next_pickup.append(next_delivery)
+                self.pk_dates = next_pickup
+            current_date += datetime.timedelta(days=7)
+
+    def __str__(self):
+        return "Package: " + f"{self.package}\n Pickup dates: "+f"{self.pk_dates}"
+
 
 subscribe = SubscriptionHandler('vip')
-subscribe.generate_pickup_dates()
-print(subscribe.pk_dates)
+# subscribe.generate_pickup_dates()
+pickups = []
+current_date = datetime.datetime.now()
+for i in range(3):
+    days = [rn.randint(1, 7) for j in range(3)]
+    for day in days:
+        subscribe.generate_pickup_dates(current_date, day)
+        print(subscribe.pk_dates)
+        pickups.append(subscribe)
+
+linkedlist = DoubleLinkedList()
+for i in len(pickups):
+    linkedlist.append(pickups[i-1])
+
+print(pickups)
