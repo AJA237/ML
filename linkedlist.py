@@ -92,4 +92,10 @@ class DoubleLinkedList:
             for _ in range(self.length - 1, index, -1):
                 current_node  = current_node.previous
         return current_node
-    def set_value(self, index, value)
+    def set_value(self, index, value):
+        node = self.get(index)
+        if node:
+            node.value = value
+            return True
+        return False
+    def sesarch(self, value):
