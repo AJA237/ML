@@ -98,4 +98,5 @@ class DoubleLinkedList:
             node.value = value
             return True
         return False
-    def sesarch(self, value):
+    def search(self, target):
+        
