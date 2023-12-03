@@ -198,7 +198,7 @@ for i in range(3):
         pickups.append(subscribe)
 
 linkedlist = DoubleLinkedList()
-for i in len(pickups):
-    linkedlist.append(pickups[i-1])
+# for i in len(pickups):
+#     linkedlist.append(pickups[i-1])
 
 print(pickups)
