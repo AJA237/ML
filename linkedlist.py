@@ -164,4 +164,6 @@ class SubscriptionHandler:
                         self.pk_dates.append()
                 case "standard":
                     self.pk_dates.append()
+            for day in self.pk_dates:
+                
     
