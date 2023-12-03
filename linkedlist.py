@@ -167,3 +167,7 @@ class SubscriptionHandler:
             for day in self.pk_dates:
                 next_delivery = current_date + relativedelta(days=+1)
                 self.pk_dates[day.index] = next_delivery
+
+subscribe = SubscriptionHandler('vip')
+subscribe.generate_pickup_dates()
+print(subscribe.pk_dates)
