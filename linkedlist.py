@@ -56,7 +56,18 @@ class DoubleLinkedList:
             print(current_node.value)
             current_node = current_node.previous
     def pop_first(self):
-        return
+        if not self.head:
+            return None
+        popped_node = self.head
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = popped_node.next
+            self.head.previous = None
+            popped_node.next = None
+        self.length -= 1
+        return popped_node
 
     def pop(self):
         if not self.head:
@@ -124,3 +135,5 @@ class DoubleLinkedList:
         popped_node.previous = None
         self.length -= 1
         return popped_node
+
+packages = {"standard", "premium", 'vip'}
