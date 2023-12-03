@@ -80,4 +80,16 @@ class DoubleLinkedList:
         elif index == self.length:
             self.append(value)
             return
-    
+     def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        if index < self.length // 2:
+            current_node = self.head
+            for _ in range(index):
+                current_node = current_node.next
+        else:
+            current_node = self.tail
+            for _ in range(self.length - 1, index, -1):
+                current_node  = current_node.previous
+        return current_node
+    def set_value(self, index, value)
