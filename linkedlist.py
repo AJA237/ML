@@ -165,5 +165,6 @@ class SubscriptionHandler:
                 case "standard":
                     self.pk_dates.append()
             for day in self.pk_dates:
+                next_delivery = current_date + relativedelta(days=+7)
                 
     
