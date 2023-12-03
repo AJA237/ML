@@ -33,3 +33,14 @@ class DoubleLinkedList:
             new_node.previous = self.tail
             self.tail = new_node
         self.length += 1
+        
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head.previous = new_node
+            self.head = new_node
+        self.length += 1
