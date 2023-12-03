@@ -107,3 +107,4 @@ class DoubleLinkedList:
             current_node = current_node.next
             index += 1
         return -1
+    def remove(self, index):
