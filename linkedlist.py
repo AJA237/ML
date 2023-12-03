@@ -153,9 +153,11 @@ class SubscriptionHandler:
         self.pk_dates = []
 
     def generate_pickup_dates(self):
-        if self.package.type == "Standard":
-            self.pk_dates.append(self.start_date)
-        elif self.package.type == "Premium":
-            self.pk_dates.append(self.start_date + datetime.timedelta(days=30))
+        if self.package.type == "standard":
+            for _ in range(3):
+                self.pk_dates.append()
+        elif self.package.type == "premium":
+            for _ in range(2)
+                self.pk_dates.append()
         elif self.package.type == "vip":
             self.pk_dates.append()
