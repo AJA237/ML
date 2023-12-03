@@ -55,7 +55,8 @@ class DoubleLinkedList:
         while current_node:
             print(current_node.value)
             current_node = current_node.previous
-    
+    def pop_first(self):
+        return
 
     def pop(self):
         if not self.head:
