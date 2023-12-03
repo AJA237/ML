@@ -153,11 +153,12 @@ class SubscriptionHandler:
         self.pk_dates = []
 
     def generate_pickup_dates(self):
-        if self.package.type == "standard":
+        if self.package.type == "vip":
             for _ in range(3):
                 self.pk_dates.append()
         elif self.package.type == "premium":
             for _ in range(2)
                 self.pk_dates.append()
-        elif self.package.type == "vip":
+        elif self.package.type == "standard":
             self.pk_dates.append()
+    
