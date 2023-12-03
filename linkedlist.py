@@ -44,8 +44,11 @@ class DoubleLinkedList:
             self.head.previous = new_node
             self.head = new_node
         self.length += 1
-    def traverse(self, value):
+    def traverse(self):
         current_node = self.head
         while current_node:
             print(current_node.value)
-            
+            current_node = current_node.next
+        
+    def reverse_traversal(self):
+        
