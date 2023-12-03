@@ -148,18 +148,20 @@ class DoubleLinkedList:
 class SubscriptionHandler:
     def __init__(self, subscription):
         self.package = subscription
-        self.start_date = datetime.now()
+        self.start_date = datetime.today()
         self.end_date = self.start_date + datetime.timedelta(days=30)
         self.pk_dates = []
 
     def generate_pickup_dates(self):
-        current_date = 
-        if self.package.type == "vip":
-            for _ in range(3):
-                self.pk_dates.append()
-        elif self.package.type == "premium":
-            for _ in range(2)
-                self.pk_dates.append()
-        elif self.package.type == "standard":
-            self.pk_dates.append()
+        current_date = datetime.now
+        if current_date <= end_date:
+            match (self.package):
+                case "vip":
+                    for _ in range(3):
+                        self.pk_dates.append()
+                case "premium":
+                    for _ in range(2)
+                        self.pk_dates.append()
+                case "standard":
+                    self.pk_dates.append()
     
