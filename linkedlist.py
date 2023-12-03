@@ -21,6 +21,7 @@ class DoubleLinkedList:
             if temp_node.next:
                 result += " <-> "
             temp_node = temp_node.next
+        return result
     
     def append(self, value):
         new_node = Node(value)
