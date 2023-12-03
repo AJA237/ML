@@ -153,6 +153,7 @@ class SubscriptionHandler:
         self.pk_dates = []
 
     def generate_pickup_dates(self):
+        current_date = 
         if self.package.type == "vip":
             for _ in range(3):
                 self.pk_dates.append()
