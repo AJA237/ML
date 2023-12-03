@@ -69,4 +69,15 @@ class DoubleLinkedList:
             popped_node.previous = None
         self.length -= 1
         return popped_node
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            print("Index out of bounds.")
+            return
+        new_node = Node(value)
+        if index == 0:
+            self.pretend(value)
+            return
+        elif index == self.length:
+            self.append(value)
+            return
     
