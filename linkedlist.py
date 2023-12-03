@@ -33,7 +33,7 @@ class DoubleLinkedList:
             new_node.previous = self.tail
             self.tail = new_node
         self.length += 1
-        
+
     def prepend(self, value):
         new_node = Node(value)
         if self.head is None:
@@ -44,3 +44,8 @@ class DoubleLinkedList:
             self.head.previous = new_node
             self.head = new_node
         self.length += 1
+    def traverse(self, value):
+        current_node = self.head
+        while current_node:
+            print(current_node.value)
+            
