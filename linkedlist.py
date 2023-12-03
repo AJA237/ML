@@ -51,4 +51,22 @@ class DoubleLinkedList:
             current_node = current_node.next
         
     def reverse_traversal(self):
-        
+        current_node = self.tail
+        while current_node:
+            print(current_node.value)
+            current_node = current_node.previous
+
+    def pop(self):
+        if not self.head:
+            return None
+        popped_node = self.tail
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.tail = popped_node.previous
+            self.tail.next = None
+            popped_node.previous = None
+        self.length -= 1
+        return popped_node
+    
