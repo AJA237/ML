@@ -12,6 +12,15 @@ class DoubleLinkedList:
         self.head = None
         self.tail = None
         self.length = 0
+
+    def __self__(self):
+        temp_node = self.head
+        result = ''
+        while temp_node:
+            result += str(temp_node.value)
+            if temp_node.next:
+                result += " <-> "
+            temp_node = temp_node.next
     
     def append(self, value):
         new_node = Node(value)
